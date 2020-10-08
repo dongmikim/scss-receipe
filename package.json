@@ -1,0 +1,17 @@
+{
+  "name": "gulp-tutorial",
+  "version": "1.0.0",
+  "description": "gulp with scss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dongmi Kim",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.1.0"
+  }
+}

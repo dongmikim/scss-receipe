@@ -1,0 +1,45 @@
+
+$grid-columns:                12 !default;
+$grid-gutter-width:           30px !default;
+$enable-grid-classes:         true !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 1280px,
+  md: 1440px,
+  lg: 1920px,
+) !default;
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    width: 100%;
+    min-height: 1px; 
+    // padding-right: $gutter / 2;
+    // padding-left: $gutter / 2;
+  }
+
+  @for $i from 1 through $columns {
+    .col-#{$i} {
+      @extend %grid-column;
+      @include make-col($i, $columns);
+    }
+
+    .col {
+      @extend %grid-column;
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+    }
+  }
+
+}
+
+.row {
+  @include make-row();
+}
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+}
